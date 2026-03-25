@@ -33,30 +33,30 @@ function App() {
             <div className='container text-center'>
               <div className='row g-4 mt-4 justify-content-center'>
                 {/* card */}
-                <div className='col-6 col-md-4 col-lg-2'>
+                <div className='col-6 col-md-4 '>
                   <div className='card h-100 w-100 shadow-sm'>
                     <div className='card-body d-flex flex-column align-items-center justify-content-center'>
-                      <h3>Frankenstein</h3>
+                      <p>Frankenstein</p>
                       <img className='img-fluid' src="/img/frankenstain.jpg" alt="Libro 1"/>
                       <button className='btn btn-info mt-2'>Ver mas</button>
                     </div>
                   </div>
                 </div>
                 {/* card */}
-                <div className='col-6 col-md-4 col-lg-2'>
+                <div className='col-6 col-md-4'>
                   <div className='card h-100 w-100 shadow-sm'>
                     <div className='card-body d-flex flex-column align-items-center justify-content-center'>
-                      <h3>Frankenstein</h3>
+                      <p>Frankenstein</p>
                       <img className='img-fluid' src="/img/frankenstain.jpg" alt="Libro 1"/>
                       <button className='btn btn-info mt-2'>Ver mas</button>
                     </div>
                   </div>
                 </div>
                 {/* card */}
-                <div className='col-6 col-md-4 col-lg-2'>
+                <div className='col-6 col-md-4'>
                   <div className='card h-100 w-100 shadow-sm'>
                     <div className='card-body d-flex flex-column align-items-center justify-content-center'>
-                      <h3>Frankenstein</h3>
+                      <p>Frankenstein</p>
                       <img className='img-fluid' src="/img/frankenstain.jpg" alt="Libro 1"/>
                       <button className='btn btn-info mt-2'>Ver mas</button>
                     </div>
