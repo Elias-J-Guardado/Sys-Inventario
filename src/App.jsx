@@ -7,6 +7,7 @@ import {CarritoSearch} from './CarritoSearch';
 import { CarritoLista } from './CarritoLista';
 import { CarritoIitem } from './CarritoItem';
 import { CreateCarritoBtn } from './CreateCarritoBtn';
+import {CarritoFooter} from './CarritoFooter';
 
 function App() {  
 
@@ -19,7 +20,9 @@ function App() {
           <CarritoIitem />
       {/* </CarritoLista> */}
 
-      <CreateCarritoBtn/>
+      <CreateCarritoBtn />
+      
+      <CarritoFooter />
 
     </>
   )
