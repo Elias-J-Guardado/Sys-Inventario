@@ -1,6 +1,6 @@
 import { useState } from 'react'
 // import frankenstain from '/img/frankenstein.jpg'
-import './App.css'
+// import './App.css'
 
 import { CarritoHeader } from './CarritoHeader';
 import {CarritoSearch} from './CarritoSearch';
