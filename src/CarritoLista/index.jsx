@@ -1,9 +1,11 @@
-function CarritoLista() {
-    <>
-        <div className="container align-items-center">
-
-        </div>
-    </>
+function CarritoLista({children}) {
+    return (
+        <>
+            <div className="container">
+                {children}
+            </div>
+        </>
+    )
 }
 
-export {CarritoLista};
+export { CarritoLista };

@@ -10,7 +10,6 @@ function CreateCarritoBtn() {
               right: '15px',
               width: '50px',
               height: '50px',
-              marginTop: '50px'
             }}>+</button>
         </div>
     </>

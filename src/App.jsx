@@ -16,9 +16,9 @@ function App() {
       <CarritoHeader />
       <CarritoSearch />
 
-      {/* <CarritoLista> */}
+      <CarritoLista>
           <CarritoIitem />
-      {/* </CarritoLista> */}
+      </CarritoLista>
 
       <CreateCarritoBtn />
       
