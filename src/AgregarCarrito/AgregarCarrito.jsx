@@ -1,5 +1,4 @@
-import { Button } from "bootstrap";
-import { Modal } from "react-bootstrap/Modal";
+import { Button, Modal } from "react-bootstrap/Modal";
 
 function AgregarCarrito() {
     
@@ -17,16 +16,16 @@ function AgregarCarrito() {
                             <input id="producto-nombre" name="producto-nombre" type="text" />
                         </div>
                         <div>
-                            <label htmlFor="formulario-label">Producto</label>
-                            <input id="producto-nombre" name="producto-nombre" type="text" />
+                            <label htmlFor="Precio-label">Precio</label>
+                            <input id="precio-nombre" name="precio-nombre" type="text" />
                         </div>
                         <div>
-                            <label htmlFor="formulario-label">Producto</label>
-                            <input type="fike" accept="image/*" onChange={handleImagen}/>
+                            <label htmlFor="Imagen-label">Imagen</label>
+                            <input type="file" accept="image/*" onChange={handleImagen}/>
                         </div>
                         <div>
-                            <label htmlFor="formulario-label">Producto</label>
-                            <textarea name="Descripción" id="descripcion"></textarea>
+                            <label htmlFor="descripcion-label">Descripcion</label>
+                            <textarea name="descripción" id="descripcion"></textarea>
                         </div>
                     
                     </form>
