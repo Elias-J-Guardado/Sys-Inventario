@@ -21,7 +21,7 @@ function CarritoHeader() {
                             <a href="#" className='nav-link active text-white'>Carrito</a>
                         </li>
                         <li className='nav-item'>
-                            <a href="#" className='nav-link active text-white'>Guardados</a>
+                            <a href="#" className='nav-link active text-white'>Historial</a>
                         </li>
                     </ul>
                 </div>
