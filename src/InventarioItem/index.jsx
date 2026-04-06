@@ -1,4 +1,4 @@
-function CarritoIitem() {
+function InventarioItem() {
   return (
     <>
       <main>
@@ -24,4 +24,4 @@ function CarritoIitem() {
   );
 }
 
-export {CarritoIitem};
+export {InventarioItem};
