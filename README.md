@@ -30,9 +30,9 @@ Permitira agregar, buscar y marcar items (aún en desarrollo)
 
 
 ## Uso
-    (pediente... Sujeto a futuras actualizaciones)
+    _Pediente - sujeto a futuras actualizaciones._
 
 ## Tecnologías
-[React](https://react.dev/)
-[Vite](https://vitejs.dev/)
-[Bootstrap](https://getbootstrap.com/)
+- [React](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- [Bootstrap](https://getbootstrap.com/)
