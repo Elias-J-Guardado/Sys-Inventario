@@ -19,7 +19,7 @@ function InventarioHeader() {
                                 <a href="#" className='nav-link active text-white'>Inicio</a>
                             </li>
                             <li className='nav-item'>
-                                <a href="#" className='nav-link active text-white'>Historial</a>
+                                <a href="#" className='nav-link active text-white'>Favoritos</a>
                             </li>
                         </ul>
                     </div>

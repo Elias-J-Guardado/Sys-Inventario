@@ -1,17 +1,38 @@
-# React + Vite
+# Sys-Inventario
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto te permite mantener un orden visible para tus productos personales.
 
-Currently, two official plugins are available:
+## Tabla de contenidos
+- [Descripción] (#descripción)
+- [Instalación] (#instalación)
+- [Uso] (#uso)
+- [Tecnologías] (#tecnologías)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## React Compiler
+## Descripción
+Aplicación web para gestionar y visualizar tu inventario personal.
+Permitira agregar, buscar y marcar items (aún en desarrollo)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Instalación
+1. Clona el repositorio
+```bash
+    https://github.com/Elias-J-Guardado/Sys-Inventario.git
+```
+2. Instala dependencias
+```bash
+    npm install
+```
 
-## Expanding the ESLint configuration
+3. Inicia el servidor de desarrollo
+```bash
+    npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# sys-carrito
+
+## Uso
+    (pediente... Sujeto a futuras actualizaciones)
+
+## Tecnologías
+[React](https://react.dev/)
+[Vite](https://vitejs.dev/)
+[Bootstrap](https://getbootstrap.com/)
