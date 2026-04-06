@@ -3,10 +3,10 @@
 Este proyecto te permite mantener un orden visible para tus productos personales.
 
 ## Tabla de contenidos
-- [Descripción] (#descripción)
-- [Instalación] (#instalación)
-- [Uso] (#uso)
-- [Tecnologías] (#tecnologías)
+- [Descripción](#descripción)
+- [Instalación](#instalación)
+- [Uso](#uso)
+- [Tecnologías](#tecnologías)
 
 
 ## Descripción
