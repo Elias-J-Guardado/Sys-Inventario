@@ -1,4 +1,4 @@
-function CarritoHeader() {
+function InventarioHeader() {
     return (
         <header style={{
             backgroundColor: '#4388de',
@@ -19,9 +19,6 @@ function CarritoHeader() {
                                 <a href="#" className='nav-link active text-white'>Inicio</a>
                             </li>
                             <li className='nav-item'>
-                                <a href="#" className='nav-link active text-white'>Carrito</a>
-                            </li>
-                            <li className='nav-item'>
                                 <a href="#" className='nav-link active text-white'>Historial</a>
                             </li>
                         </ul>
@@ -32,4 +29,4 @@ function CarritoHeader() {
     );
 }
 
-export { CarritoHeader }
+export { InventarioHeader }

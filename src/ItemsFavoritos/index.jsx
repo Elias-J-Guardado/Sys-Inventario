@@ -1,11 +1,11 @@
 import { Button, Modal } from "react-bootstrap";
 
-function HistorialCarrito() {
+function ItemsFavoritos() {
     return(
         <>
             <div className="modal-show" style={{display: "block", position: 'initial'}}>
                 <Modal.Header>
-                    <Modal.Title>Historial de ventas</Modal.Title>
+                    <Modal.Title>Productos Guardados</Modal.Title>
                 </Modal.Header>
 
                 <Modal.body>
@@ -14,9 +14,11 @@ function HistorialCarrito() {
 
                 <Modal.Footer>
                     <Button variant="secundary">Cerrar</Button>
-                    <button variant="primary">Imprimir</button>
+                    <button variant="primary">Guardar</button>
                 </Modal.Footer>
             </div>
         </>
     )
 }
+
+export {ItemsFavoritos};

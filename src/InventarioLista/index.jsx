@@ -1,4 +1,4 @@
-function CarritoLista({children}) {
+function InventarioLista({children}) {
     return (
         <>
             <div className="container">
@@ -8,4 +8,4 @@ function CarritoLista({children}) {
     )
 }
 
-export { CarritoLista };
+export { InventarioLista };

@@ -2,27 +2,27 @@ import { useState } from 'react'
 // import frankenstain from '/img/frankenstein.jpg'
 // import './App.css'
 
-import { CarritoHeader } from './CarritoHeader';
-import {CarritoSearch} from './CarritoSearch';
-import { CarritoLista } from './CarritoLista';
-import { CarritoIitem } from './CarritoItem';
-import { CreateCarritoBtn } from './CreateCarritoBtn';
-import {CarritoFooter} from './CarritoFooter';
+import { InventarioHeader } from './InventarioHeader';
+import {ItemSearch} from './ItemSearch';
+import { InventarioLista } from './InventarioLista';
+import { InventarioItem } from './InventarioItem';
+import { CreateItemBtn } from './CreateItemBtn';
+import {InventarioFooter} from './InventarioFooter';
 
 function App() {  
 
   return (
     <>
-      <CarritoHeader />
-      <CarritoSearch />
+      <InventarioHeader />
+      <ItemSearch />
 
-      <CarritoLista>
-          <CarritoIitem />
-      </CarritoLista>
+      <InventarioLista>
+          <InventarioItem />
+      </InventarioLista>
 
-      <CreateCarritoBtn />
+      <CreateItemBtn />
       
-      <CarritoFooter />
+      <InventarioFooter />
 
     </>
   )

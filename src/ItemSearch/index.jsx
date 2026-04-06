@@ -1,4 +1,4 @@
-function CarritoSearch() {
+function ItemSearch() {
     return (
         <>
             <div className="input-group mb-3 mt-4 w-50 mx-auto">
@@ -9,4 +9,4 @@ function CarritoSearch() {
     )
 }
 
-export { CarritoSearch };
+export { ItemSearch };

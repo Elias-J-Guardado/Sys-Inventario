@@ -1,4 +1,4 @@
-function CreateCarritoBtn() {
+function CreateItemBtn() {
   return (
     <>
         <div>
@@ -9,11 +9,13 @@ function CreateCarritoBtn() {
               position: 'fixed',
               right: '15px',
               width: '50px',
+              button: '80px',
               height: '50px',
+              zIndex: 9999,
             }}>+</button>
         </div>
     </>
   );
 }
 
-export {CreateCarritoBtn}
+export {CreateItemBtn};
