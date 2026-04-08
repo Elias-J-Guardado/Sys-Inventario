@@ -16,8 +16,8 @@ function AgregarInventario({ show, handleClose }) {
                                 <input id="producto-nombre" name="producto-nombre" type="text" />
                             </div>
                             <div className="mb-3">
-                                <label htmlFor="Precio-label">Precio</label>
-                                <input id="precio-nombre" name="precio-nombre" type="text" />
+                                <label htmlFor="cantidad-label">Cantidad</label>
+                                <input id="cantidad-nombre" name="cantidad-nombre" type="text" />
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="Imagen-label">Imagen</label>
