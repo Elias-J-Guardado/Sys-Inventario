@@ -3,13 +3,18 @@ import { useState } from 'react'
 // import './App.css'
 
 import { InventarioHeader } from './InventarioHeader';
-import {ItemSearch} from './ItemSearch';
+import { ItemSearch } from './ItemSearch';
 import { InventarioLista } from './InventarioLista';
 import { InventarioItem } from './InventarioItem';
 import { CreateItemBtn } from './CreateItemBtn';
-import {InventarioFooter} from './InventarioFooter';
+import { InventarioFooter } from './InventarioFooter';
+import { AgregarInventario } from './AgregarCarrito/';
 
-function App() {  
+function App() {
+  const [showModal, setShowModal] = useState(false);
+
+  const handleOpenModal = () => setShowModal(true);
+  const handleCloseModal = () => setShowModal(false)
 
   return (
     <>
@@ -17,15 +22,16 @@ function App() {
       <ItemSearch />
 
       <InventarioLista>
-          <InventarioItem />
+        <InventarioItem />
       </InventarioLista>
 
-      <CreateItemBtn />
-      
+      <CreateItemBtn onClick={handleOpenModal} />
+      {showModal && <AgregarInventario show={showModal} handleClose={handleCloseModal} />}
+
       <InventarioFooter />
 
     </>
-  )
+  );
 }
 
 
