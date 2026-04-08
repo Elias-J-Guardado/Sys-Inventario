@@ -8,7 +8,7 @@ import { InventarioLista } from './InventarioLista';
 import { InventarioItem } from './InventarioItem';
 import { CreateItemBtn } from './CreateItemBtn';
 import { InventarioFooter } from './InventarioFooter';
-import { AgregarInventario } from './AgregarCarrito/';
+import { AgregarInventario } from './AgregarInventario/';
 
 function App() {
   const [showModal, setShowModal] = useState(false);
