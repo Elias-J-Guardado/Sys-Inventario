@@ -9,7 +9,16 @@ function ItemsFavoritos() {
                 </Modal.Header>
 
                 <Modal.body>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Items</th>
+                            </tr>
+                            <tbody>
 
+                            </tbody>
+                        </thead>
+                    </table>
                 </Modal.body>
 
                 <Modal.Footer>
