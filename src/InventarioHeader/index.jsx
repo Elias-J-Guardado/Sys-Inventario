@@ -5,7 +5,7 @@ function InventarioHeader() {
         }}>
             <nav className='navbar navbar-expand-lg navbar-light shadow-sm'>
                 <div className="container">
-                    <a href="#" className='navbar-brand text-white mx-3'>SysCarrito</a>
+                    <a href="#" className='navbar-brand text-white mx-3'>SysInventario</a>
 
 
                     <button className='navbar-toggler' type='button' data-bs-toggle='collapse'
