@@ -1,3 +1,5 @@
+import { FaHeart, FaTrash } from "react-icons/fa";
+
 function InventarioItem() {
   return (
     <>
@@ -9,9 +11,13 @@ function InventarioItem() {
                 <div className='col-6 col-md-4 '>
                   <div className='card h-100 w-100 shadow-sm'>
                     <div className='card-body d-flex flex-column align-items-center justify-content-center'>
-                      <p>Frankenstein</p>
                       <img className='img-fluid' src="/img/frankenstain.jpg" alt="Libro 1"/>
-                      <button className='btn btn-info mt-2'>Ver mas</button>
+                      <p>Frankenstein</p>
+                      <p>Cantidad: 4</p>
+                      <div className="d-flex p-1 gap-2 mt-2">
+                        <button className='btn btn-danger'><FaTrash/></button>
+                        <button className="btn btn-primary"><FaHeart/></button>
+                      </div>
                     </div>
                   </div>
                 </div>
