@@ -12,7 +12,7 @@ function CreateItemBtn({onClick}) {
               position: 'fixed',
               right: '15px',
               width: '50px',
-              botton: '80px',
+              bottom: '80px',
               height: '50px',
               zIndex: 9999,
             }}>
