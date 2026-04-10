@@ -9,7 +9,7 @@ function InventarioItem() {
               <div className='row g-4 mt-4 justify-content-center'>
                 {/* card */}
                 <div className='col-6 col-md-4 '>
-                  <div className='card h-100 w-100 shadow-sm'>
+                  <div className='card h-80 w-50 shadow-sm'>
                     <div className='card-body d-flex flex-column align-items-center justify-content-center'>
                       <img className='img-fluid' src="/img/frankenstain.jpg" alt="Libro 1"/>
                       <p>Frankenstein</p>
