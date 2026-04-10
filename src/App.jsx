@@ -16,17 +16,28 @@ function App() {
   const handleOpenModal = () => setShowModal(true);
   const handleCloseModal = () => setShowModal(false)
 
+  // localStorage
+  const [items, setItems] = useState(
+    JSON.parse(localStorage.getItem("inventarioLS")) || []
+  );
+
+  const handleGuardar = (nuevoItem) => {
+    const listaActualizada = [...items, nuevoItem];
+    localStorage.setItem("inventarioLS", JSON.stringify(listaActualizada));
+  }
+
+
   return (
     <>
       <InventarioHeader />
       <ItemSearch />
 
-      <InventarioLista>
+      <InventarioLista items={items}>
         <InventarioItem />
       </InventarioLista>
 
       <CreateItemBtn onClick={handleOpenModal} />
-      {showModal && <AgregarInventario show={showModal} handleClose={handleCloseModal} />}
+      {showModal && <AgregarInventario show={showModal} onGuardar={handleGuardar} handleClose={handleCloseModal} />}
 
       <InventarioFooter />
 

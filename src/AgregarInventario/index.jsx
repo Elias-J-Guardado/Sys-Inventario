@@ -1,7 +1,17 @@
+import { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
-import { useContext } from "react";
 
-function AgregarInventario({ show, handleClose }) {
+
+function AgregarInventario({show, handleClose, onGuardar}) {
+
+    const [nombre, setNombre] = useState("");
+    const [cantidad, setCantidad] = useState("");
+    const [descripcion, setDescripcion] = useState("");
+
+    const handleEnviar = () => {
+        onGuardar({nombre, cantidad, descripcion})
+    }
+
 
     return (    
                 <Modal show={show} onHide={handleClose} centered>
@@ -13,19 +23,19 @@ function AgregarInventario({ show, handleClose }) {
                         <form id="formulario" className="col-md-6 mx-auto">
                             <div className="mb-3">
                                 <label htmlFor="formulario-label">Producto</label>
-                                <input id="producto-nombre" name="producto-nombre" type="text" />
+                                <input id="producto-nombre" name="producto-nombre" type="text" onChange={(e) => setNombre(e.target.value)}/>
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="cantidad-label">Cantidad</label>
-                                <input id="cantidad-nombre" name="cantidad-nombre" type="text" />
+                                <input id="cantidad-nombre" name="cantidad-nombre" type="text" onChange={(e) => setCantidad(e.target.value)} />
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="Imagen-label">Imagen</label>
-                                {/* <input type="file" accept="image/*" onChange={handleImagen} /> */}
+                                <input type="file" accept="image/*" />
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="descripcion-label">Descripcion</label>
-                                <textarea name="descripción" id="descripcion"></textarea>
+                                <textarea name="descripción" id="descripcion" onChange={(e) => setDescripcion(e.target.value)}></textarea>
                             </div>
 
                         </form>
@@ -33,7 +43,7 @@ function AgregarInventario({ show, handleClose }) {
 
                     <Modal.Footer>
                         <Button variant="secundary" onClick={handleClose}>Cerrar</Button>
-                        <Button variant="primary">Guardar</Button>
+                        <Button variant="primary" onClick={handleEnviar}>Guardar</Button>
                     </Modal.Footer>
 
                 </Modal>

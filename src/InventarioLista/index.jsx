@@ -1,4 +1,6 @@
-function InventarioLista({children}) {
+import { InventarioItem } from "../InventarioItem";
+
+function InventarioLista({items}) {
     return (
         <>
             <div className="container" style={{
@@ -6,7 +8,9 @@ function InventarioLista({children}) {
                 overflowY: 'auto',
                 paddingBottom: '100px'
             }}>
-                {children}
+                {items.map((item, index) => (
+                    <InventarioItem key={index} item={item} />
+                ))}
             </div>
         </>
     )
