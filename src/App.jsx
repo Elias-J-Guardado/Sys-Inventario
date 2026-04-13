@@ -24,6 +24,7 @@ function App() {
   const handleGuardar = (nuevoItem) => {
     const listaActualizada = [...items, nuevoItem];
     localStorage.setItem("inventarioLS", JSON.stringify(listaActualizada));
+    setItems(listaActualizada);
   }
 
 
@@ -34,7 +35,7 @@ function App() {
 
       <InventarioLista items={items}>
         <InventarioItem />
-      </InventarioLista>
+      </InventarioLista >
 
       <CreateItemBtn onClick={handleOpenModal} />
       {showModal && <AgregarInventario show={showModal} onGuardar={handleGuardar} handleClose={handleCloseModal} />}
