@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
+import { supabase } from "../supabaseClient";
 
 
 function AgregarInventario({show, handleClose, onGuardar}) {
@@ -7,9 +8,34 @@ function AgregarInventario({show, handleClose, onGuardar}) {
     const [nombre, setNombre] = useState("");
     const [cantidad, setCantidad] = useState("");
     const [descripcion, setDescripcion] = useState("");
+    const [imagen_url, setImagenUrl] = useState("");
 
     const handleEnviar = () => {
-        onGuardar({nombre, cantidad, descripcion})
+        onGuardar({nombre, cantidad, imagen_url: imagen_url ,descripcion})
+    }
+
+    // Añadiendo supabase
+    const handleImagen = async (e) => {
+        const file = e.target.files[0];
+        const nombreFile = `${Date.now()}-${file.name}`;
+        
+        const {data, error} = await supabase.storage
+            .from("imagen-inventario")
+            .upload(nombreFile, file);
+
+        console.log("Upload data: ", data);
+        console.log("upload error: ", error)
+
+        if (error) {
+            console.error(error);
+            return;
+        }
+
+        const {data: urlData} = supabase.storage
+            .from("imagen-inventario")
+            .getPublicUrl(nombreFile);
+
+        setImagenUrl(urlData.publicUrl)
     }
 
 
@@ -31,7 +57,7 @@ function AgregarInventario({show, handleClose, onGuardar}) {
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="Imagen-label">Imagen</label>
-                                <input type="file" accept="image/*" />
+                                <input type="file" accept="image/*" onChange={handleImagen} />
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="descripcion-label">Descripcion</label>

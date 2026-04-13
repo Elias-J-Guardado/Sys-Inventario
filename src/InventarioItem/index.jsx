@@ -5,7 +5,7 @@ function InventarioItem({ item }) {
     <>
       <div className="col-6 col-md-4">
         <div className="card shadow-sm d-flex align-items-center">
-          {/* <img src={item.imagen_url} alt={item.nombre} /> */}
+          {item.imagen_url && <img className="img-fluid" src={item.imagen_url} alt={item.nombre} />}
           <p>{item.nombre}</p>
           <p>Cantidad: {item.cantidad}</p>
           <div className="d-flex p-1 gap-2 mt-2">
