@@ -12,6 +12,7 @@ function AgregarInventario({show, handleClose, onGuardar}) {
 
     const handleEnviar = () => {
         onGuardar({nombre, cantidad, imagen_url: imagen_url ,descripcion})
+        handleClose()
     }
 
     // Añadiendo supabase
@@ -46,22 +47,22 @@ function AgregarInventario({show, handleClose, onGuardar}) {
                     </Modal.Header>
 
                     <Modal.Body>
-                        <form id="formulario" className="col-md-6 mx-auto">
-                            <div className="mb-3">
-                                <label htmlFor="formulario-label">Producto</label>
-                                <input id="producto-nombre" name="producto-nombre" type="text" onChange={(e) => setNombre(e.target.value)}/>
+                        <form id="formulario" className="d-flex flex-column p-2 gap-4 mx-auto">
+                            <div className="mb-3 d-flex flex-column">
+                                <label htmlFor="formulario-label">Producto: </label>
+                                <input className="form-control" id="producto-nombre" name="producto-nombre" type="text" onChange={(e) => setNombre(e.target.value)}/>
                             </div>
-                            <div className="mb-3">
-                                <label htmlFor="cantidad-label">Cantidad</label>
-                                <input id="cantidad-nombre" name="cantidad-nombre" type="text" onChange={(e) => setCantidad(e.target.value)} />
+                            <div className="mb-3 d-flex flex-column">
+                                <label htmlFor="cantidad-label">Cantidad: </label>
+                                <input className="form-control" id="cantidad-nombre" name="cantidad-nombre" type="text" onChange={(e) => setCantidad(e.target.value)} />
                             </div>
-                            <div className="mb-3">
-                                <label htmlFor="Imagen-label">Imagen</label>
-                                <input type="file" accept="image/*" onChange={handleImagen} />
+                            <div className="mb-3 d-flex flex-column">
+                                <label htmlFor="Imagen-label">Imagen: </label>
+                                <input className="form-control" type="file" accept="image/*" onChange={handleImagen} />
                             </div>
-                            <div className="mb-3">
-                                <label htmlFor="descripcion-label">Descripcion</label>
-                                <textarea name="descripción" id="descripcion" onChange={(e) => setDescripcion(e.target.value)}></textarea>
+                            <div className="mb-3 d-flex flex-column form-outline">
+                                <label htmlFor="descripcion-label">Descripcion: </label>
+                                <textarea className="form-control" style={{resize: "none"}} name="descripción" id="descripcion" onChange={(e) => setDescripcion(e.target.value)}></textarea>
                             </div>
 
                         </form>
