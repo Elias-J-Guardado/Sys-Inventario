@@ -30,15 +30,14 @@ Permitira agregar, buscar y marcar items (aún en desarrollo)
 
 
 ## Uso
-    _Sujeto a futuras actualizaciones._
 
-    - Añadiendo Item
+  - Añadiendo Item
 
-    ![Modal AgregarInventario](/public/img/ss_1.png)
+  ![Modal AgregarInventario](/public/img/ss_1.png)
 
-    - Item Añadido
+ - Item Añadido
 
-    ![Item añadido](/public/img/ss_2.png)
+  ![Item añadido](/public/img/ss_2.png)
 
 
 ## Tecnologías
