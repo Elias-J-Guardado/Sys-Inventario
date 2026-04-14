@@ -30,9 +30,19 @@ Permitira agregar, buscar y marcar items (aún en desarrollo)
 
 
 ## Uso
-    _Pediente - sujeto a futuras actualizaciones._
+    _Sujeto a futuras actualizaciones._
+
+    - Añadiendo Item
+
+    ![Modal AgregarInventario](/public/img/ss_1.png)
+
+    - Item Añadido
+
+    ![Item añadido](/public/img/ss_2.png)
+
 
 ## Tecnologías
 - [React](https://react.dev/)
 - [Vite](https://vitejs.dev/)
 - [Bootstrap](https://getbootstrap.com/)
+- [SupaBase](https://supabase.com/)
