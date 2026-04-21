@@ -1,5 +1,7 @@
 import { InventarioItem } from "../InventarioItem";
 
+const listaVacia = "No hay ningun item en la lista, por favor agrega uno";
+
 function InventarioLista({items}) {
     return (
         <>

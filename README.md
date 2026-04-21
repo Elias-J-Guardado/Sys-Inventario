@@ -16,7 +16,7 @@ Permitira agregar, buscar y marcar items (aún en desarrollo)
 ## Instalación
 1. Clona el repositorio
 ```bash
-    https://github.com/Elias-J-Guardado/Sys-Inventario.git
+   git clone https://github.com/Elias-J-Guardado/Sys-Inventario.git
 ```
 2. Instala dependencias
 ```bash
@@ -44,4 +44,4 @@ Permitira agregar, buscar y marcar items (aún en desarrollo)
 - [React](https://react.dev/)
 - [Vite](https://vitejs.dev/)
 - [Bootstrap](https://getbootstrap.com/)
-- [SupaBase](https://supabase.com/)
+- [Supabase](https://supabase.com/)
