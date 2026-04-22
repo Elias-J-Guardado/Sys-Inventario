@@ -12,6 +12,7 @@ import { AgregarInventario } from './AgregarInventario/';
 
 function App() {
   const [showModal, setShowModal] = useState(false);
+  const [busqueda, setBusqueda] = useState("");
 
   const handleOpenModal = () => setShowModal(true);
   const handleCloseModal = () => setShowModal(false)
@@ -26,14 +27,17 @@ function App() {
     localStorage.setItem("inventarioLS", JSON.stringify(listaActualizada));
     setItems(listaActualizada);
   }
-
+  
+  const filtrarItem = items.filter(item =>
+    item.nombre.toLowerCase().includes(busqueda.toLocaleLowerCase())
+  ); 
 
   return (
     <>
       <InventarioHeader />
-      <ItemSearch />
+      <ItemSearch busqueda={busqueda} onSearch={setBusqueda} />
 
-      <InventarioLista items={items}>
+      <InventarioLista items={filtrarItem}>
         <InventarioItem />
       </InventarioLista >
 
