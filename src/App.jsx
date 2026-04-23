@@ -9,6 +9,7 @@ import { InventarioItem } from './InventarioItem';
 import { CreateItemBtn } from './CreateItemBtn';
 import { InventarioFooter } from './InventarioFooter';
 import { AgregarInventario } from './AgregarInventario/';
+import { supabase } from './supabaseClient';
 
 function App() {
   const [showModal, setShowModal] = useState(false);
@@ -27,6 +28,18 @@ function App() {
     localStorage.setItem("inventarioLS", JSON.stringify(listaActualizada));
     setItems(listaActualizada);
   }
+
+  const handleEliminar = async(item) => {
+    const nombreArchivo = item.imagen_url.split("/").pop();
+
+    await supabase.storage
+      .from("imagen-inventario")
+      .remove([nombreArchivo]);
+
+    const listaActualizada = items.filter(i => i !== item);
+    localStorage.setItem("inventarioLS", JSON.stringify(listaActualizada));
+    setItems(listaActualizada);
+  }
   
   const filtrarItem = items.filter(item =>
     item.nombre.toLowerCase().includes(busqueda.toLocaleLowerCase())
@@ -37,7 +50,7 @@ function App() {
       <InventarioHeader />
       <ItemSearch busqueda={busqueda} onSearch={setBusqueda} />
 
-      <InventarioLista items={filtrarItem}>
+      <InventarioLista items={filtrarItem} onEliminar={handleEliminar}>
         <InventarioItem />
       </InventarioLista >
 
