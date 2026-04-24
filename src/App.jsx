@@ -30,11 +30,16 @@ function App() {
   }
 
   const handleEliminar = async(item) => {
-    const nombreArchivo = item.imagen_url.split("/").pop();
+   
+    const nombreArchivo = decodeURIComponent(item.imagen_url.split("/").pop());
+    console.log("nombreArchivo:", nombreArchivo);
 
-    await supabase.storage
+    const {data, error} = await supabase.storage
       .from("imagen-inventario")
       .remove([nombreArchivo]);
+
+    console.log("data: ", data)
+    console.log("error: ", error)
 
     const listaActualizada = items.filter(i => i !== item);
     localStorage.setItem("inventarioLS", JSON.stringify(listaActualizada));
