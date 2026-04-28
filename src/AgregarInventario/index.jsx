@@ -3,12 +3,12 @@ import { Button, Modal } from "react-bootstrap";
 import { supabase } from "../supabaseClient";
 
 
-function AgregarInventario({show, handleClose, onGuardar}) {
+function AgregarInventario({show, handleClose, onGuardar, productoEditar = null}) {
 
-    const [nombre, setNombre] = useState("");
-    const [cantidad, setCantidad] = useState("");
-    const [descripcion, setDescripcion] = useState("");
-    const [imagen_url, setImagenUrl] = useState("");
+    const [nombre, setNombre] = useState(productoEditar?.nombre ?? "");
+    const [cantidad, setCantidad] = useState(productoEditar?.cantidad ?? "");
+    const [descripcion, setDescripcion] = useState(productoEditar?.descripcion ?? "");
+    const [imagen_url, setImagenUrl] = useState(productoEditar?.imagen_url ?? "");
 
     const handleEnviar = () => {
         onGuardar({nombre, cantidad, imagen_url: imagen_url ,descripcion})
@@ -43,18 +43,18 @@ function AgregarInventario({show, handleClose, onGuardar}) {
     return (    
                 <Modal show={show} onHide={handleClose} centered>
                     <Modal.Header closeButton onHide={handleClose}>
-                        <Modal.Title>Nuevo Producto</Modal.Title>
+                        <Modal.Title>{productoEditar ? "Editar Producto" : "Nuevo Producto"}</Modal.Title>
                     </Modal.Header>
 
                     <Modal.Body>
                         <form id="formulario" className="d-flex flex-column p-2 gap-4 mx-auto">
                             <div className="mb-3 d-flex flex-column">
                                 <label htmlFor="formulario-label">Producto: </label>
-                                <input className="form-control" id="producto-nombre" name="producto-nombre" type="text" onChange={(e) => setNombre(e.target.value)}/>
+                                <input className="form-control" value={nombre} id="producto-nombre" name="producto-nombre" type="text" onChange={(e) => setNombre(e.target.value)}/>
                             </div>
                             <div className="mb-3 d-flex flex-column">
                                 <label htmlFor="cantidad-label">Cantidad: </label>
-                                <input className="form-control" id="cantidad-nombre" name="cantidad-nombre" type="text" onChange={(e) => setCantidad(e.target.value)} />
+                                <input className="form-control" value={cantidad} id="cantidad-nombre" name="cantidad-nombre" type="text" onChange={(e) => setCantidad(e.target.value)} />
                             </div>
                             <div className="mb-3 d-flex flex-column">
                                 <label htmlFor="Imagen-label">Imagen: </label>
@@ -62,7 +62,7 @@ function AgregarInventario({show, handleClose, onGuardar}) {
                             </div>
                             <div className="mb-3 d-flex flex-column form-outline">
                                 <label htmlFor="descripcion-label">Descripcion: </label>
-                                <textarea className="form-control" style={{resize: "none"}} name="descripción" id="descripcion" onChange={(e) => setDescripcion(e.target.value)}></textarea>
+                                <textarea className="form-control" value={descripcion} style={{resize: "none"}} name="descripción" id="descripcion" onChange={(e) => setDescripcion(e.target.value)}></textarea>
                             </div>
 
                         </form>
@@ -70,7 +70,7 @@ function AgregarInventario({show, handleClose, onGuardar}) {
 
                     <Modal.Footer>
                         <Button variant="secundary" onClick={handleClose}>Cerrar</Button>
-                        <Button variant="primary" onClick={handleEnviar}>Guardar</Button>
+                        <Button variant="primary" onClick={handleEnviar}>{productoEditar ? "Guardar cambios" : "Guardar"}</Button>
                     </Modal.Footer>
 
                 </Modal>
