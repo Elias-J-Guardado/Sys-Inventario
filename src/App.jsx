@@ -16,12 +16,18 @@ function App() {
   const [busqueda, setBusqueda] = useState("");
 
   const handleOpenModal = () => setShowModal(true);
-  const handleCloseModal = () => setShowModal(false)
+  const handleCloseModal = () => {
+    setShowModal(false)
+    setProductoEditar(null);
+  }
 
   // localStorage
   const [items, setItems] = useState(
     JSON.parse(localStorage.getItem("inventarioLS")) || []
   );
+
+  //Editar
+  const [productoEditar, setProductoEditar] = useState(null);
 
   const handleGuardar = (nuevoItem) => {
     const listaActualizada = [...items, nuevoItem];
@@ -50,17 +56,33 @@ function App() {
     item.nombre.toLowerCase().includes(busqueda.toLocaleLowerCase())
   ); 
 
+    const handleEditar = (item) => {
+    setProductoEditar(item);
+    setShowModal(true)
+  }
+
+  const handleGuardarEdicion = itemEditado => {
+    const listaActualizada = items.map(i => i === itemEditado ? productoEditado : i);
+    localStorage.setItem("inventarioLS", JSON.stringify(listaActualizada));
+    setItems(listaActualizada);
+    setProductoEditar(null);
+  }
+
   return (
     <>
       <InventarioHeader />
       <ItemSearch busqueda={busqueda} onSearch={setBusqueda} />
 
-      <InventarioLista items={filtrarItem} onEliminar={handleEliminar}>
+      <InventarioLista items={filtrarItem} onEliminar={handleEliminar} onEditar={handleEditar}>
         <InventarioItem />
       </InventarioLista >
 
       <CreateItemBtn onClick={handleOpenModal} />
-      {showModal && <AgregarInventario show={showModal} onGuardar={handleGuardar} handleClose={handleCloseModal} />}
+      {showModal && <AgregarInventario 
+      show={showModal} 
+      handleClose={handleCloseModal}
+      productoEditar={productoEditar}
+      onGuardar={productoEditar ? handleGuardar : handleGuardar} />}
 
       <InventarioFooter />
 
