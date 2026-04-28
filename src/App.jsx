@@ -62,7 +62,7 @@ function App() {
   }
 
   const handleGuardarEdicion = itemEditado => {
-    const listaActualizada = items.map(i => i === itemEditado ? productoEditado : i);
+    const listaActualizada = items.map(i => i === productoEditar ? itemEditado : i);
     localStorage.setItem("inventarioLS", JSON.stringify(listaActualizada));
     setItems(listaActualizada);
     setProductoEditar(null);
@@ -82,7 +82,7 @@ function App() {
       show={showModal} 
       handleClose={handleCloseModal}
       productoEditar={productoEditar}
-      onGuardar={productoEditar ? handleGuardar : handleGuardar} />}
+      onGuardar={productoEditar ? handleGuardarEdicion : handleGuardar} />}
 
       <InventarioFooter />
 
