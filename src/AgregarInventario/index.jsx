@@ -69,7 +69,7 @@ function AgregarInventario({show, handleClose, onGuardar, productoEditar = null}
                     </Modal.Body>
 
                     <Modal.Footer>
-                        <Button variant="secundary" onClick={handleClose}>Cerrar</Button>
+                        <Button variant="secondary" onClick={handleClose}>Cerrar</Button>
                         <Button variant="primary" onClick={handleEnviar}>{productoEditar ? "Guardar cambios" : "Guardar"}</Button>
                     </Modal.Footer>
 

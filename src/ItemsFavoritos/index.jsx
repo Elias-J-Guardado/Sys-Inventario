@@ -2,7 +2,7 @@ import { Button, Modal } from "react-bootstrap";
 import { useState } from "react";
 
 function ItemsFavoritos({ showFavoritos, handleCloseFavoritos }) {
-    return(
+    return (
         <>
             <Modal show={showFavoritos} onHide={handleCloseFavoritos} centered>
                 <Modal.Header closeButton onHide={handleCloseFavoritos}>
@@ -15,20 +15,20 @@ function ItemsFavoritos({ showFavoritos, handleCloseFavoritos }) {
                             <tr>
                                 <th>Items</th>
                             </tr>
-                            <tbody>
-
-                            </tbody>
                         </thead>
+                        <tbody>
+
+                        </tbody>
                     </table>
                 </Modal.Body>
 
                 <Modal.Footer>
-                    <Button variant="secundary">Cerrar</Button>
-                    <button variant="primary">Guardar</button>
+                    <Button variant="secondary" onClick={handleCloseFavoritos}>Cerrar</Button>
+                    <Button variant="primary">Guardar</Button>
                 </Modal.Footer>
             </Modal>
         </>
     )
 }
 
-export {ItemsFavoritos};
+export { ItemsFavoritos };

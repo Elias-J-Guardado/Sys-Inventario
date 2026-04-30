@@ -24,6 +24,8 @@ function App() {
     setOpenFavoritos(false)
   }
 
+  console.log(showFavoritos)
+
   const handleOpenModal = () => setShowModal(true);
   const handleCloseModal = () => {
     setShowModal(false)
@@ -81,7 +83,7 @@ function App() {
     <>
       <InventarioHeader onOpenFavoritos = {handleOpenFavoritos} />
       {showFavoritos && <ItemsFavoritos
-        show={showFavoritos}
+        showFavoritos={showFavoritos}
         handleCloseFavoritos={handleCloseFavoritos}
       />}
       <ItemSearch busqueda={busqueda} onSearch={setBusqueda} />
