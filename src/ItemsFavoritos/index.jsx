@@ -1,33 +1,34 @@
 import { Button, Modal } from "react-bootstrap";
+import { useState } from "react";
 
-function ItemsFavoritos() {
-    return(
+function ItemsFavoritos({ showFavoritos, handleCloseFavoritos }) {
+    return (
         <>
-            <div className="modal-show" style={{display: "block", position: 'initial'}}>
-                <Modal.Header>
+            <Modal show={showFavoritos} onHide={handleCloseFavoritos} centered>
+                <Modal.Header closeButton onHide={handleCloseFavoritos}>
                     <Modal.Title>Productos Guardados</Modal.Title>
                 </Modal.Header>
 
-                <Modal.body>
+                <Modal.Body>
                     <table>
                         <thead>
                             <tr>
                                 <th>Items</th>
                             </tr>
-                            <tbody>
-
-                            </tbody>
                         </thead>
+                        <tbody>
+
+                        </tbody>
                     </table>
-                </Modal.body>
+                </Modal.Body>
 
                 <Modal.Footer>
-                    <Button variant="secundary">Cerrar</Button>
-                    <button variant="primary">Guardar</button>
+                    <Button variant="secondary" onClick={handleCloseFavoritos}>Cerrar</Button>
+                    <Button variant="primary">Guardar</Button>
                 </Modal.Footer>
-            </div>
+            </Modal>
         </>
     )
 }
 
-export {ItemsFavoritos};
+export { ItemsFavoritos };

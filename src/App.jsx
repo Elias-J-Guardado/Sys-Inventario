@@ -9,11 +9,22 @@ import { InventarioItem } from './InventarioItem';
 import { CreateItemBtn } from './CreateItemBtn';
 import { InventarioFooter } from './InventarioFooter';
 import { AgregarInventario } from './AgregarInventario/';
+import { ItemsFavoritos } from './ItemsFavoritos/'
 import { supabase } from './supabaseClient';
 
 function App() {
   const [showModal, setShowModal] = useState(false);
   const [busqueda, setBusqueda] = useState("");
+
+  //Favoritos
+  const [showFavoritos, setOpenFavoritos] = useState(false);
+
+  const handleOpenFavoritos = () => setOpenFavoritos(true)
+  const handleCloseFavoritos = () => {
+    setOpenFavoritos(false)
+  }
+
+  console.log(showFavoritos)
 
   const handleOpenModal = () => setShowModal(true);
   const handleCloseModal = () => {
@@ -70,7 +81,11 @@ function App() {
 
   return (
     <>
-      <InventarioHeader />
+      <InventarioHeader onOpenFavoritos = {handleOpenFavoritos} />
+      {showFavoritos && <ItemsFavoritos
+        showFavoritos={showFavoritos}
+        handleCloseFavoritos={handleCloseFavoritos}
+      />}
       <ItemSearch busqueda={busqueda} onSearch={setBusqueda} />
 
       <InventarioLista items={filtrarItem} onEliminar={handleEliminar} onEditar={handleEditar}>
