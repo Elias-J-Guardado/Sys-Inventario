@@ -1,14 +1,15 @@
 import { Button, Modal } from "react-bootstrap";
+import { useState } from "react";
 
-function ItemsFavoritos() {
+function ItemsFavoritos({ showFavoritos, handleCloseFavoritos }) {
     return(
         <>
-            <div className="modal-show" style={{display: "block", position: 'initial'}}>
-                <Modal.Header>
+            <Modal show={showFavoritos} onHide={handleCloseFavoritos} centered>
+                <Modal.Header closeButton onHide={handleCloseFavoritos}>
                     <Modal.Title>Productos Guardados</Modal.Title>
                 </Modal.Header>
 
-                <Modal.body>
+                <Modal.Body>
                     <table>
                         <thead>
                             <tr>
@@ -19,13 +20,13 @@ function ItemsFavoritos() {
                             </tbody>
                         </thead>
                     </table>
-                </Modal.body>
+                </Modal.Body>
 
                 <Modal.Footer>
                     <Button variant="secundary">Cerrar</Button>
                     <button variant="primary">Guardar</button>
                 </Modal.Footer>
-            </div>
+            </Modal>
         </>
     )
 }

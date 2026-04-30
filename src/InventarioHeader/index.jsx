@@ -1,4 +1,4 @@
-function InventarioHeader() {
+function InventarioHeader({onOpenFavoritos}) {
     return (
         <header style={{
             backgroundColor: '#4388de',
@@ -19,7 +19,9 @@ function InventarioHeader() {
                                 <a href="#" className='nav-link active text-white'>Inicio</a>
                             </li>
                             <li className='nav-item'>
-                                <a href="#" className='nav-link active text-white'>Favoritos</a>
+                                <a href="#" className='nav-link active text-white' 
+                                onClick={onOpenFavoritos}
+                                >Favoritos</a>
                             </li>
                         </ul>
                     </div>
