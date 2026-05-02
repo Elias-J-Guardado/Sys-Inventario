@@ -37,6 +37,10 @@ function App() {
     JSON.parse(localStorage.getItem("inventarioLS")) || []
   );
 
+  const [favoritos, setFavoritos] = useState(
+    JSON.parse(localStorage.getItem("favoritosLS")) || []
+  )
+
   //Editar
   const [productoEditar, setProductoEditar] = useState(null);
 
@@ -61,6 +65,18 @@ function App() {
     const listaActualizada = items.filter(i => i !== item);
     localStorage.setItem("inventarioLS", JSON.stringify(listaActualizada));
     setItems(listaActualizada);
+  }
+
+  const handleFavoritos = item => {
+    const inFavorito = favoritos.some(f => f === item)
+
+    if (inFavorito) {
+      setFavoritos(favoritos.filter(i => i != item))
+      alert('El item ya esta agregado')
+    } else {
+      const itemActualizado = [...favoritos, item]
+      setFavoritos(listaActualizada)
+    }
   }
   
   const filtrarItem = items.filter(item =>
