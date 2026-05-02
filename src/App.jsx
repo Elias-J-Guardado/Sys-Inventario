@@ -37,6 +37,10 @@ function App() {
     JSON.parse(localStorage.getItem("inventarioLS")) || []
   );
 
+  const [favoritos, setFavoritos] = useState(
+    JSON.parse(localStorage.getItem("favoritosLS")) || []
+  )
+
   //Editar
   const [productoEditar, setProductoEditar] = useState(null);
 
@@ -46,12 +50,12 @@ function App() {
     setItems(listaActualizada);
   }
 
-  const handleEliminar = async(item) => {
-   
+  const handleEliminar = async (item) => {
+
     const nombreArchivo = decodeURIComponent(item.imagen_url.split("/").pop());
     console.log("nombreArchivo:", nombreArchivo);
 
-    const {data, error} = await supabase.storage
+    const { data, error } = await supabase.storage
       .from("imagen-inventario")
       .remove([nombreArchivo]);
 
@@ -62,12 +66,24 @@ function App() {
     localStorage.setItem("inventarioLS", JSON.stringify(listaActualizada));
     setItems(listaActualizada);
   }
-  
+
+  const handleFavoritos = item => {
+    const inFavorito = favoritos.some(f => f === item)
+
+    if (inFavorito) {
+      setFavoritos(favoritos.filter(i => i != item))
+      alert('El item ya esta agregado')
+    } else {
+      const itemActualizado = [...favoritos, item]
+      setFavoritos(itemActualizado)
+    }
+  }
+
   const filtrarItem = items.filter(item =>
     item.nombre.toLowerCase().includes(busqueda.toLocaleLowerCase())
-  ); 
+  );
 
-    const handleEditar = (item) => {
+  const handleEditar = (item) => {
     setProductoEditar(item);
     setShowModal(true)
   }
@@ -81,23 +97,30 @@ function App() {
 
   return (
     <>
-      <InventarioHeader onOpenFavoritos = {handleOpenFavoritos} />
+      <InventarioHeader onOpenFavoritos={handleOpenFavoritos} />
       {showFavoritos && <ItemsFavoritos
         showFavoritos={showFavoritos}
         handleCloseFavoritos={handleCloseFavoritos}
+        favoritos={favoritos}
       />}
       <ItemSearch busqueda={busqueda} onSearch={setBusqueda} />
 
-      <InventarioLista items={filtrarItem} onEliminar={handleEliminar} onEditar={handleEditar}>
+      <InventarioLista
+        items={filtrarItem}
+        onEliminar={handleEliminar}
+        onEditar={handleEditar}
+        onFavorito={handleFavoritos}
+        favoritos={favoritos}
+        >
         <InventarioItem />
       </InventarioLista >
 
       <CreateItemBtn onClick={handleOpenModal} />
-      {showModal && <AgregarInventario 
-      show={showModal} 
-      handleClose={handleCloseModal}
-      productoEditar={productoEditar}
-      onGuardar={productoEditar ? handleGuardarEdicion : handleGuardar} />}
+      {showModal && <AgregarInventario
+        show={showModal}
+        handleClose={handleCloseModal}
+        productoEditar={productoEditar}
+        onGuardar={productoEditar ? handleGuardarEdicion : handleGuardar} />}
 
       <InventarioFooter />
 

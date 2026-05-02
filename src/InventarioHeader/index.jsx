@@ -1,4 +1,4 @@
-function InventarioHeader({onOpenFavoritos}) {
+function InventarioHeader({onOpenFavoritos, favoritos}) {
     return (
         <header style={{
             backgroundColor: '#4388de',

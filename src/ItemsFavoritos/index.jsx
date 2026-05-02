@@ -1,7 +1,7 @@
 import { Button, Modal } from "react-bootstrap";
 import { useState } from "react";
 
-function ItemsFavoritos({ showFavoritos, handleCloseFavoritos }) {
+function ItemsFavoritos({ showFavoritos, handleCloseFavoritos, favoritos }) {
     return (
         <>
             <Modal show={showFavoritos} onHide={handleCloseFavoritos} centered>
@@ -17,7 +17,11 @@ function ItemsFavoritos({ showFavoritos, handleCloseFavoritos }) {
                             </tr>
                         </thead>
                         <tbody>
-
+                            {favoritos.map((item, index) => (
+                                <tr key={index}>
+                                    <td>{item.nombre}</td>
+                                </tr>
+                            ))}
                         </tbody>
                     </table>
                 </Modal.Body>
