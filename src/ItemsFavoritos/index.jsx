@@ -1,4 +1,5 @@
 import { Button, Modal } from "react-bootstrap";
+import { FaTrash } from "react-icons/fa";
 import { useState } from "react";
 
 function ItemsFavoritos({ showFavoritos, handleCloseFavoritos, favoritos }) {
@@ -6,20 +7,24 @@ function ItemsFavoritos({ showFavoritos, handleCloseFavoritos, favoritos }) {
         <>
             <Modal show={showFavoritos} onHide={handleCloseFavoritos} centered>
                 <Modal.Header closeButton onHide={handleCloseFavoritos}>
-                    <Modal.Title>Productos Guardados</Modal.Title>
+                    <Modal.Title>Items Guardados</Modal.Title>
                 </Modal.Header>
 
                 <Modal.Body>
-                    <table>
+                    <table className="table">
                         <thead>
                             <tr>
-                                <th>Items</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Cantidad</th>
+                                <th scope="col">Eliminar</th>
                             </tr>
                         </thead>
                         <tbody>
                             {favoritos.map((item, index) => (
                                 <tr key={index}>
-                                    <td>{item.nombre}</td>
+                                    <td>{item.nombre} </td>
+                                    <td>cantidad: {item.cantidad} </td>
+                                    <td> <button className="btn btn-danger"> <FaTrash /> </button> </td>
                                 </tr>
                             ))}
                         </tbody>
@@ -28,7 +33,6 @@ function ItemsFavoritos({ showFavoritos, handleCloseFavoritos, favoritos }) {
 
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleCloseFavoritos}>Cerrar</Button>
-                    <Button variant="primary">Guardar</Button>
                 </Modal.Footer>
             </Modal>
         </>
