@@ -24,7 +24,7 @@ function App() {
     setOpenFavoritos(false)
   }
 
-  console.log(showFavoritos)
+  // console.log(showFavoritos)
 
   const handleOpenModal = () => setShowModal(true);
   const handleCloseModal = () => {
@@ -39,7 +39,7 @@ function App() {
 
   const [favoritos, setFavoritos] = useState(
     JSON.parse(localStorage.getItem("favoritosLS")) || []
-  )
+  );
 
   //Editar
   const [productoEditar, setProductoEditar] = useState(null);
@@ -67,13 +67,15 @@ function App() {
     setItems(listaActualizada);
   }
 
-  const handleFavoritos = item => {
+  const handleFavoritos = async item => {
     const inFavorito = favoritos.some(f => f === item)
-
+    const favoritosActualizados = [...favoritos, item]
     if (inFavorito) {
       setFavoritos(favoritos.filter(i => i != item))
+      localStorage.setItem("fvoritosLS", JSON.stringify(favoritosActualizados))
       alert('El item ya esta agregado')
     } else {
+      localStorage.setItem("favoritosLS", JSON.stringify(favoritosActualizados));
       const itemActualizado = [...favoritos, item]
       setFavoritos(itemActualizado)
     }
@@ -89,7 +91,6 @@ function App() {
   }
 
   const handleGuardarEdicion = itemEditado => {
-    const listaActualizada = items.map(i => i === productoEditar ? itemEditado : i);
     localStorage.setItem("inventarioLS", JSON.stringify(listaActualizada));
     setItems(listaActualizada);
     setProductoEditar(null);
@@ -111,7 +112,7 @@ function App() {
         onEditar={handleEditar}
         onFavorito={handleFavoritos}
         favoritos={favoritos}
-        >
+      >
         <InventarioItem />
       </InventarioLista >
 
