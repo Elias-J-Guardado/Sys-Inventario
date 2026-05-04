@@ -14,7 +14,9 @@ function ItemsFavoritos({ showFavoritos, handleCloseFavoritos, favoritos }) {
                     <table className="table">
                         <thead>
                             <tr>
-                                <th>Items</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Cantidad</th>
+                                <th scope="col">Eliminar</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -22,7 +24,7 @@ function ItemsFavoritos({ showFavoritos, handleCloseFavoritos, favoritos }) {
                                 <tr key={index}>
                                     <td>{item.nombre} </td>
                                     <td>cantidad: {item.cantidad} </td>
-                                    <td> <button className="btn btn-daneger"> <FaTrash /> </button> </td>
+                                    <td> <button className="btn btn-danger"> <FaTrash /> </button> </td>
                                 </tr>
                             ))}
                         </tbody>
@@ -31,7 +33,6 @@ function ItemsFavoritos({ showFavoritos, handleCloseFavoritos, favoritos }) {
 
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleCloseFavoritos}>Cerrar</Button>
-                    <Button variant="primary">Guardar</Button>
                 </Modal.Footer>
             </Modal>
         </>
