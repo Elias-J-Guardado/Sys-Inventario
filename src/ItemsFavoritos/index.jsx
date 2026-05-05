@@ -1,13 +1,14 @@
 import { Button, Modal } from "react-bootstrap";
 import { FaTrash } from "react-icons/fa";
 import { useState } from "react";
+import { AlertaEliminar } from "../AlertaEliminar";
 
-function ItemsFavoritos({ showFavoritos, handleCloseFavoritos, favoritos }) {
+function ItemsFavoritos({ showFavoritos, handleCloseFavoritos, favoritos, onEliminarFavorito}) {
     return (
         <>
             <Modal show={showFavoritos} onHide={handleCloseFavoritos} centered>
                 <Modal.Header closeButton onHide={handleCloseFavoritos}>
-                    <Modal.Title>Items Guardados</Modal.Title>
+                    <Modal.Title className="text-primary fw-bold">Items Guardados</Modal.Title>
                 </Modal.Header>
 
                 <Modal.Body>
@@ -24,7 +25,7 @@ function ItemsFavoritos({ showFavoritos, handleCloseFavoritos, favoritos }) {
                                 <tr key={index}>
                                     <td>{item.nombre} </td>
                                     <td>cantidad: {item.cantidad} </td>
-                                    <td> <button className="btn btn-danger"> <FaTrash /> </button> </td>
+                                    <td> <button className="btn btn-danger" onClick={() => AlertaEliminar(item, () => onEliminarFavorito(item))}> <FaTrash /> </button> </td>
                                 </tr>
                             ))}
                         </tbody>
