@@ -1,6 +1,6 @@
 import Swal from "sweetalert2";
 
-const AlertaEliminar = (objeto) => {
+function AlertaEliminar (objeto, onConfirm) {
     Swal.fire({
         title: "¿Estás seguro?",
         text: `¿Quieres eliminar "${objeto.nombre}"?`,
@@ -11,7 +11,7 @@ const AlertaEliminar = (objeto) => {
         reverseButtons: true,
     }).then((resultado) => {
         if (resultado.isConfirmed) {
-            //ingresar handler aqui
+            onConfirm();
 
             Swal.fire(
                 "El Item ha sido Eliminado",
@@ -21,3 +21,5 @@ const AlertaEliminar = (objeto) => {
         }
     });
 };
+
+export {AlertaEliminar};

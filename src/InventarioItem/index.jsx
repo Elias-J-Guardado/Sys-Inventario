@@ -1,4 +1,5 @@
 import { FaHeart, FaTrash, FaMarker } from "react-icons/fa";
+import { AlertaEliminar } from "../AlertaEliminar";
 
 function InventarioItem({ item, onEliminar, onEditar,onFavorito ,favoritos }) {
   return (
@@ -11,7 +12,7 @@ function InventarioItem({ item, onEliminar, onEditar,onFavorito ,favoritos }) {
           <p>{item.nombre}</p>
           <p>Cantidad: {item.cantidad}</p>
           <div className="d-flex p-1 gap-2 mt-2">
-            <button className='btn btn-danger' onClick={() => onEliminar(item)}><FaTrash /></button>
+            <button className='btn btn-danger' onClick={() => AlertaEliminar(item, () => onEliminar(item))}><FaTrash /></button>
             <button className="btn btn-primary" onClick={() => onFavorito(item)} ><FaHeart /></button>
             <button className="btn btn-warning" onClick={() => onEditar(item)}><FaMarker /></button>
           </div>

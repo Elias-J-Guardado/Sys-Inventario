@@ -81,6 +81,12 @@ function App() {
     }
   }
 
+  const handleEliminarFavoritos = (item) => {
+    const favoritosActualizados = favoritos.filter(i => i.nombre !== item.nombre)
+    localStorage.setItem("favoritosLS", JSON.stringify(favoritosActualizados));
+    setFavoritos(favoritosActualizados)
+  }
+
   const filtrarItem = items.filter(item =>
     item.nombre.toLowerCase().includes(busqueda.toLocaleLowerCase())
   );
@@ -103,6 +109,7 @@ function App() {
         showFavoritos={showFavoritos}
         handleCloseFavoritos={handleCloseFavoritos}
         favoritos={favoritos}
+        onEliminarFavorito={handleEliminarFavoritos}
       />}
       <ItemSearch busqueda={busqueda} onSearch={setBusqueda} />
 
