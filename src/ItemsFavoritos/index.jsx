@@ -7,7 +7,7 @@ function ItemsFavoritos({ showFavoritos, handleCloseFavoritos, favoritos }) {
         <>
             <Modal show={showFavoritos} onHide={handleCloseFavoritos} centered>
                 <Modal.Header closeButton onHide={handleCloseFavoritos}>
-                    <Modal.Title>Items Guardados</Modal.Title>
+                    <Modal.Title className="text-primary fw-bold">Items Guardados</Modal.Title>
                 </Modal.Header>
 
                 <Modal.Body>
