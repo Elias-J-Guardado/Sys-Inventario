@@ -11,6 +11,7 @@ import { InventarioFooter } from './InventarioFooter';
 import { AgregarInventario } from './AgregarInventario/';
 import { ItemsFavoritos } from './ItemsFavoritos/'
 import { supabase } from './supabaseClient';
+import { InventarioAlerta } from './InventarioAlerta';
 
 function App() {
   const [showModal, setShowModal] = useState(false);
@@ -71,9 +72,9 @@ function App() {
     const inFavorito = favoritos.some(f => f === item)
     const favoritosActualizados = [...favoritos, item]
     if (inFavorito) {
-      setFavoritos(favoritos.filter(i => i != item))
-      localStorage.setItem("fvoritosLS", JSON.stringify(favoritosActualizados))
-      alert('El item ya esta agregado')
+      setFavoritos(favoritos.filter(i => i.nombre !== item.nombre))
+      localStorage.setItem("favoritosLS", JSON.stringify(favoritosActualizados))
+      InventarioAlerta(item);
     } else {
       localStorage.setItem("favoritosLS", JSON.stringify(favoritosActualizados));
       const itemActualizado = [...favoritos, item]

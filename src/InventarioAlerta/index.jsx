@@ -1,12 +1,15 @@
 import Swal from "sweetalert2";
-import { useState } from "react";
 
-Swal.fire({
-    title: "<strong>Error</strong>",
-    icon: "info",
-    html: `
-        El objeto que intenta añadir ya se encuentra en favoritos...
+function InventarioAlerta(objeto) {
+    Swal.fire({
+        title: "<strong>Error</strong>",
+        icon: "info",
+        html: `
+        El "${objeto.nombre}" que intenta añadir ya se encuentra en favoritos...
     `,
-    showCloseButton: true,
-    closeButtonText: "Cerrar"
-})
+        showCloseButton: true,
+        closeButtonText: "Cerrar"
+    })
+}
+
+export { InventarioAlerta };
